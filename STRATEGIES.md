@@ -1,196 +1,138 @@
-# AEGIS — Strategy Catalog
+# STRATEGIES — Full Defense Catalog
 
-### 70 Defense Mechanisms: Origins, Principles, and Implementations
+## Overview
 
----
-
-## How to Read This
-
-Each strategy is listed with:
-- **Origin** — Where the idea came from (history, biology, physics, mathematics, cinema)
-- **Principle** — What it does to the attacker in plain language
-- **Effect** — The concrete cryptographic implementation
-
-Strategies are organized by phase and deploy in **randomized order** within each phase (the Algorithm of Terror).
+AEGIS v9.3 deploys **70 trap defenses** across 5 phases + 3 structural mechanisms + 2 security models. Every defense has a name, an origin metaphor, and a concrete algebraic operation.
 
 ---
 
-## Infrastructure
+## Phase 0: Entropy Collapse (3 mechanisms)
 
-### Layer -1: Who Invited You?
-**Origin:** Access control  
-**Principle:** The first 6 columns encode a hash challenge. Without the preimage, you have no business here.  
-**Effect:** Entry denial — wrong key can't even begin the attack
+| # | Name | Operation | Purpose |
+|---|------|-----------|---------|
+| EC-1 | Column Flood | 8% of columns → PRF-random values | Destroy clean column structure |
+| EC-2 | Block Permutation | 4-column blocks → GF(4) permutation shuffle | Break local patterns |
+| EC-3 | Linear Combination | 50 target columns → sum of 8 random sources | Create algebraic dependencies |
 
-### Hall of Mirrors
-**Origin:** Fairground optics  
-**Principle:** 273 real objects hidden among 5000+ reflections. Which is which?  
-**Effect:** Decoy lines indistinguishable from real spread lines; selection complexity C(5000, 273)
+## Phase I: 26 Ancient Traps
 
-### Algorithm of Terror
-**Origin:** Guerrilla warfare  
-**Principle:** You don't know which trap comes next. The uncertainty is the weapon.  
-**Effect:** All trap deployment orders randomized per private key seed
+| # | Name | Origin | Operation |
+|---|------|--------|-----------|
+| T25 | Bronze Crossbows | Ancient warfare | 50 column pairs → linear offset |
+| T24 | Murder Holes | Castle defense | High-weight columns → single flip |
+| T23 | Dried Gut | Tripwire | Prime-index columns → perturbation |
+| T22 | Portcullis | Gate defense | Columns 1165+ → 30% random flip |
+| T21 | False Steps | Deception | 100 column swaps |
+| T20 | Nightingale | Japanese floors | Cyclic stride perturbation |
+| T19 | Pivot Doors | Hidden passages | Block-offset single flips |
+| T18 | False Chambers | Honeypot | T_fake matrix deployed |
+| T17 | Right-Hand | Bias exploitation | Upper 3 rows → 8% flip rate |
+| T16 | Sand Pit | Collapse trap | 3+ changed columns → full randomize |
+| T15 | Arrow-Tip | Geometric poison | Spread-line points added to columns |
+| T14 | Siphons | Drainage | Triple-column linear combinations |
+| T13 | Tide Wells | Gradient trap | Position-dependent flip probability |
+| T12 | Suction Mud | Zero trap | 30 columns → all zeros |
+| T11 | Haloclines | Duplication | 40 column duplications |
+| T10 | Vibration | Pure noise | 20 columns → full random |
+| T9 | Obsidian | Decoy T | T_decoy matrix deployed |
+| T8 | Radon | Silent copy | 50 column copies |
+| T7 | Spores | Local spread | Adjacent column recurrence |
+| T6 | Forgetting | Permutation | 80 column swaps |
+| T5 | Mercury | Uniform poison | 25 columns → all same element |
+| T4 | Hematite | Stride pattern | Every 17th column → a+1 |
+| T3 | Oleander | Block poison | 50 consecutive → random vectors |
+| T2 | Gas Chambers | Selective kill | High-diversity columns → zero one entry |
+| T26 | Sophie | Cross-contamination | A/B partition → mean injection |
 
----
+## Phase II: 12 Biological Horrors
 
-## Phase I — The Ancient Gauntlet (26 Traps)
+| # | Name | Origin | Operation |
+|---|------|--------|-----------|
+| B1 | Prion | Misfolding | Chain reaction: j → (j×843)%N |
+| B2 | Cordyceps | Mind control | High-connectivity columns → uniform vector |
+| B3 | Emerald Wasp | Parasitic injection | Apply T_fake to 40 columns |
+| B4 | Tetrodotoxin | Paralysis | 10 blocks → low-rank subspace |
+| B5 | Ichneumonid | Low-weight targeting | Lightest 60 columns → flip |
+| B6 | Cone Snail | Reversal | 30 pairs → row-reversed copy |
+| B7 | Gympie | Local reaction | Adjacent recurrence |
+| B8 | Ophiocordyceps | Subtle control | 5% of valid points → single flip |
+| B9 | Pit Viper | Heat-seeking | SHA-derived per-column perturbation |
+| B10 | Honeybee | Broad sting | 10% of all columns → random flip |
+| B11 | Toxoplasma | Disguise | Invalid columns → valid-looking points |
+| B12 | Pitcher Plant | Gradient lure | 15 cascading sequences |
 
-Historical warfare mechanisms mapped to attacks on the attacker's computational state.
+## Phase III: 20 Anti-Quantum Defenses
 
-| # | Name | Origin | Principle | Effect |
-|---|------|--------|-----------|--------|
-| 1 | **Chamber of Grace** | AEGIS original | Your success IS your condemnation | Traitor tracing fingerprint in extracted keys |
-| 2 | **Siphon Gas Chambers** | Maya cenotes | The air you seek stops your heart | High-information columns poisoned |
-| 3 | **Oleander Walls** | Ancient gardens | Air becomes poison with heat | 50-column toxic subspace block |
-| 4 | **Hematite Dust** | Egyptian tombs | Lungs turn to stone | Petrification entries across columns |
-| 5 | **Mercury Pit** | Qin Shi Huang | Toxic vapor, impassable | All-generator columns (maximum confusion) |
-| 6 | **Forgetting Fungus** | Chinese tombs | Erases your mental map | Index scrambles destroy positional information |
-| 7 | **Aspergillus Spores** | Egyptian tombs | Dormant, waiting for breath | Cascade trigger triplets |
-| 8 | **Radon Emanations** | Egyptian tombs | Invisible curse, die later | Delayed contradiction pairs |
-| 9 | **Obsidian False Exit** | Aztec temples | Run toward your reflection | Second attractor T** planted |
-| 10 | **Vibration Lintels** | Egyptian tombs | Forcing the door activates it | Spectral decoy columns |
-| 11 | **Haloclines** | Maya cenotes | Visual lie hides abyss | Mirror column pairs |
-| 12 | **Suction Mud** | Maya cenotes | Visual blackout + trapping | Zero columns (black holes) |
-| 13 | **Inverse Tide Wells** | Various | Time is the executioner | Progressive noise gradient |
-| 14 | **Suction Siphons** | Maya hydraulics | Tide makes return impossible | Hidden linear dependencies |
-| 15 | **Arrow-Tip Floors** | Chinese tombs | Flagstone becomes abyss | Conditional column traps |
-| 16 | **Sand Pit** | Egyptian tombs | Time and weight kill | Multiply-corrupted columns fully buried |
-| 17 | **Right-Handed Stairs** | Medieval castles | Asymmetric physical advantage | Asymmetric noise entries (top-heavy) |
-| 18 | **False Chambers** | Egyptian pyramids | You think you've stolen all | Decoy solution T_fake planted |
-| 19 | **False Pivot Doors** | European castles | Mass enters, can't exit | Roach motel clusters |
-| 20 | **Nightingale Floors** | Japanese castles | Stealth becomes alarm | Arithmetic progression markers |
-| 21 | **False Step Stairs** | Maya pyramids | Attacks proprioception | Column index swaps |
-| 22 | **Granite Portcullis** | Egyptian tombs | Wall drops after exit | Late-stage column corruptions |
-| 23 | **Dried Gut Cables** | Various | Invisible tightening whip | Prime-indexed column corruptions |
-| 24 | **Murder Holes** | Medieval castles | Boiling sand on armor | High-weight columns corrupted |
-| 25 | **Bronze Crossbows** | Qin Dynasty | Persistent structural decoy | Column pairs with forced XOR patterns |
-| 26 | **Sophie's Choice** | AEGIS original | Kill daughter A or B? | Complementary destruction fork — entangled column sets |
-
----
-
-## Phase II — Biological Horror (12 Traps)
-
-Nature's most terrifying organisms, translated to mathematical warfare.
-
-| # | Agent | Type | What It Does to the Attacker |
-|---|-------|------|------------------------------|
-| 1 | **Prion (Kuru/CJD)** | Misfolded protein | Self-propagating corruption — column j infects column (j×843)%N |
-| 2 | **Cordyceps** | Fungal parasite | Hijacks highest-connectivity columns as broadcast towers |
-| 3 | **Emerald Wasp** | Neurotoxin | Zombie convergence — columns modified to satisfy T_fake closure |
-| 4 | **Tetrodotoxin** | Blue-ring octopus | Conscious paralysis — rank-3 clusters stall Gaussian elimination |
-| 5 | **Ichneumonid Wasp** | Parasitic larva | Eats low-weight columns first — system looks healthy then collapses |
-| 6 | **Cone Snail** | Insulin shock | False symmetry pairs — algebraic hypoglycemia |
-| 7 | **Gympie-Gympie** | Plant toxin | Self-consistent triplets (c3=c1+c2) — unfilterable structural pain |
-| 8 | **Ophiocordyceps** | Control fungus | Best-looking columns are most poisoned — trusting your instincts kills you |
-| 9 | **Pit Viper** | Infrared vision | Watermarked columns for traitor tracing — sees you by your heat |
-| 10 | **Japanese Honeybee** | Collective heat | Low-amplitude noise across every column — individually harmless, collectively fatal |
-| 11 | **Toxoplasma** | Protozoan | Removes warning signs — broken columns disguised as healthy |
-| 12 | **Pitcher Plant** | Carnivorous | One-way computational slope — walls too slippery to climb |
-
----
-
-## Phase III — Anti-Quantum Decoherence (20 Traps)
-
-Each targets a specific quantum computing primitive.
-
-| # | Name | Creator | Quantum Vulnerability Targeted |
-|---|------|---------|-------------------------------|
-| Q1 | **Grover Overshoot** | Architect | Columns oscillating between 2 fake attractors |
-| Q2 | **Shor False Period** | Architect | Apparent periodicity with irrational dissonance at 3rd cycle |
-| Q3 | **Blind Oracle** | Architect | Silent phase inversions (0.1%) |
-| Q4 | **Uncompute Trap** | Architect | Residual entanglement garbage (3-column XOR dependencies) |
-| Q5 | **Phase Flip** | Architect | Silent sign errors preserving Hamming weight |
-| Q6 | **Leakage State** | Architect | Columns outside computational basis |
-| Q7 | **Crosstalk** | Architect | Adjacent columns mutually corrupt |
-| Q8 | **Zeno Freeze** | Architect | Blocks of identical columns (measurement freezes evolution) |
-| Q9 | **Thermal Ghost** | Architect | Noise with thermal profile (indistinguishable from fluctuation) |
-| Q10 | **Monogamy** | Architect | Columns forced to entangle with noise environment |
-| Q11 | **Poisoned Cat** | Architect | Self-referential columns (reading collapses to garbage) |
-| Q12 | **Amplitude Sink** | Architect | 5 fake attractors competing for probability amplitude |
-| Q13 | **Eigenvalue Collision** | Architect | Degenerate eigenvalues confuse QPE |
-| Q14 | **Hadamard Haloclina** | Architect | Self-conjugate entries that invert under Hadamard |
-| Q15 | **Decoherence Abyss** | Architect | Cross-column dependencies requiring impossible coherence |
-| Q16 | **The Hydra** | Engine | Cut one dependency = two grow back |
-| Q17 | **Quantum Tar Pit** | Engine | 2-dim subspace where amplitude enters but can't leave |
-| Q18 | **The Siren** | Engine | Correct solution at wrong phase factor |
-| Q19 | **Heisenberg's Razor** | Engine | Complementary pairs: know one, destroy the other |
-| Q20 | **Heat Death** | Engine | Maximum entropy blocks: zero extractable information |
-
-**Important note:** The three auditors unanimously agreed that these traps function as **classical obfuscation**, not quantum-specific defenses. A quantum computer compiles H_pub into a Grover oracle — it doesn't "experience" the columns. The real anti-quantum defense is coupling strength (Layer 2), not trap design. We document this honestly while keeping the traps for their classical value.
-
----
-
-## Phase IV — Structural Evil (5 Traps)
-
-> *"We don't protect the secret. We poison the enemy."*
-
-| # | Name | Principle |
+| # | Name | Operation |
 |---|------|-----------|
-| 1 | **Semantic Gaslight** | Attacker wins a *perfect lie* — valid-format key producing disinformation |
-| 2 | **Gröbner Tar Pit** | Computation reaches 99% then requires exabytes for the last 1% |
-| 3 | **Sisyphus Fractal** | Decoding produces a new AEGIS ciphertext — infinite recursion disguised as depth |
-| 4 | **Mark of Cain** | Extracted keys carry forensic beacons revealing the attacker's methods |
-| 5 | **The Basilisk** | The math attacks the *software* processing it — exponential memory in CAS |
+| Q1 | Grover Overshoot | Apply fake T to partial rows |
+| Q2 | Shor False Period | Periodic stride perturbation |
+| Q3 | Blind Oracle | Rare bit-flip inversion |
+| Q4 | Uncompute Trap | Triple linear combination |
+| Q5 | Phase Flip | Sparse conditional flip |
+| Q6 | Leakage | 20 columns → fixed element |
+| Q7 | Crosstalk | Adjacent pair cross-contamination |
+| Q8 | Zeno Freeze | 5-column constant runs |
+| Q9 | Thermal Ghost | 5% random perturbation |
+| Q10 | Monogamy | 25 cross-column additions |
+| Q11 | Poisoned Cat | SHA(column) → replace column |
+| Q12 | Amplitude Sink | 5 fake attractors × 8 columns each |
+| Q13 | Eigenvalue Collision | Triple-column duplication |
+| Q14 | Hadamard Haloclina | a ↔ a+1 swap |
+| Q15 | Decoherence Abyss | 8-column groups → shared perturbation |
+| Q16 | Hydra | Kill one → spawn two |
+| Q17 | Quantum Tar Pit | Adjacent averaging |
+| Q18 | Siren | True T applied with noise |
+| Q19 | Heisenberg Razor | Cross-column transfer |
+| Q20 | Heat Death | Full column randomization |
 
----
+## Phase IV: 5 Structural Evils
 
-## Phase V — Existential Terror (4 Traps)
+| # | Name | v9.3 Status | Operation |
+|---|------|-------------|-----------|
+| E1 | **Gaslight** | **PRF-deterministic** (FIX-3) | SHA(seed+column+index) → unique injection. Zero collisions. |
+| E2 | Gröbner Tar | Active | 35 columns → random values |
+| E3 | Sisyphus Fractal | Active | Repeating pattern blocks |
+| E4 | Mark of Cain | Active | 7 forensic fingerprint blocks |
+| E5 | Basilisk | Active | 50 columns → binary {a, a+1} |
 
-> *"The cave no longer contains arrows or biological poisons. It contains paradoxes."*
+## Phase V: 4 Existential Terrors
 
-| # | Name | Principle |
+| # | Name | Operation |
 |---|------|-----------|
-| 1 | **Turing Horizon** | Asymptotic convergence: 99.9%... 99.99%... The limit doesn't exist. The machine never halts. |
-| 2 | **Kolmogorov Void** | Maximum complexity disguised as structure. ML detects phantom correlations that vanish on exploitation. |
-| 3 | **Gödel Lock** | To verify A you need B. To verify B you need A. No fixed point. The proof exists but can't be proven. |
-| 4 | **Ψ·Σ Armageddon** | Columns satisfying BOTH the real and fake key. Any analyzer must hold two mutually exclusive hypotheses. |
+| X1 | Turing Horizon | 10 convergence sequences (20 columns each) |
+| X2 | Kolmogorov Void | 82 incompressible ghost-pattern columns |
+| X3 | Gödel Lock | 30 circular hash-dependency pairs |
+| X4 | Ψ·Σ Armageddon | 35 dual-allegiance columns (T + T_fake) |
 
----
+## Structural Mechanisms (v9.1+)
 
-## Phase 0/Final — Entropy Collapse (Wrapper)
+| # | Name | Version | Status |
+|---|------|---------|--------|
+| S1 | **Anti-Collision Sweep** | v9.1 | Iterative PRF until 0 duplicate columns |
+| S2 | **Monolithic T** | v9.1 | No block decomposition (auditor consensus) |
+| S3 | **Conic Regulus** | v9.1 | Hall spread via conic-based regulus (5 lines) |
 
-Applied before all traps AND after all traps:
+## Security Models (v9.3)
 
-| # | Name | Principle |
-|---|------|-----------|
-| EC-1 | **Noise Forest** | Max-entropy columns — fire hose of randomness |
-| EC-2 | **Cost Function Collapse** | Gradient = 0 everywhere — all optimization algorithms starve |
-| EC-3 | **Landauer Heat Trap** | Columns = XOR of 8 sources — verification requires massive bit erasure |
+| Model | Private Key | Security Basis | Status |
+|-------|------------|----------------|--------|
+| **A** | T = GF(16) multiplication | 273/273 invariance + corruption | Clean attack polynomial |
+| **B** | 273 line indices (no T) | Hidden spread + noise. Gap=0.05 | **INDISTINGUISHABLE** |
 
----
-
-## Film-Derived Design Principles
-
-### The Score (2001)
-De Niro knows the betrayal is coming. He plants a fake. The thief steals it, leaves happy, discovers it's worthless. Can't report the theft.
-
-**AEGIS translation:** The attacker finds a valid-looking solution among the noise. It satisfies all public checks. It's fake. The attacker acts on disinformation.
-
-### Flawless (2007)
-30 years walking corridors. Doesn't crack the safe — flushes diamonds down the plumbing. Infrastructure only the insider knows.
-
-**AEGIS translation:** The owner decodes through the spread geometry — a path that doesn't exist in the public matrix. The attacker looks for a door. The owner uses the pipes.
-
----
-
-## Statistics
+## Empirical Results (v9.3)
 
 ```
-Total mechanisms:        70
-Historical warfare:      26
-Biological horror:       12
-Anti-quantum:            20
-Structural evil:          5
-Existential terror:       4
-Entropy wrapper:          3
-Infrastructure:           3 (Layer -1, Hall of Mirrors, Algorithm of Terror)
-Original corruption:     67.2%
-Decryption:              SUCCESSFUL through all phases
+Total defenses deployed:     70 traps + 3 structural + 2 models
+Corruption:                  37.8% (3094/8190)
+Entropy:                     1.994 bits (max 2.0)
+Gaslight collisions:         0/100
+T-invariance (Model A):      273/273
+Model B distinguisher gap:   0.05 (indistinguishable)
+Noisy decrypt success:       20/20 at 50% noise
 ```
 
 ---
 
-<p align="center">
-  <em>"The algorithm of chaos is terrifying: you never know which one comes next."</em>
-</p>
+*70 defenses. 5 phases. 3 rounds of audit. 0 mercy.*  
+*The truth is more important than the dream.*
