@@ -8,6 +8,16 @@
 
 ---
 
+## 48 Hours
+
+48 hours before this commit, the creator of this project — a psychology graduate with no formal mathematical training — did not know what McEliece was.
+
+What happened next: 12 prototype versions. 3 rounds of independent adversarial audit by three AI systems. 4 critical vulnerabilities found and fixed in real-time. 1 formal mathematical reduction (Threshold MinRank). 1 unexpected security model discovered. A decryption mechanism that survives 50% noise corruption (20/20 tests).
+
+Every failure is documented. Every death produced a deeper version. The full story is in [THE_ARCHITECTS_METHOD.md](THE_ARCHITECTS_METHOD.md).
+
+---
+
 ## What Is This?
 
 AEGIS is an experimental geometric-code cryptographic construction built on Desarguesian spreads in PG(5,4). It is **not** a production cryptosystem. It is a research framework exploring whether spread geometry + heavy corruption can provide post-quantum security.
@@ -25,7 +35,7 @@ Entropy:         1.994 bits (max 2.0)
 Gaslight:        0/100 collisions
 Model B gap:     0.05 (real vs decoy lines INDISTINGUISHABLE)
 Centralizer:     dim=18 (under investigation)
-Runtime:         6.6s (Python3, MacBook Air M2)
+Runtime:         6.6s (Python3, no dependencies)
 ```
 
 ## Two Security Models
@@ -36,7 +46,7 @@ All 273 lines T-invariant. Clean-case recovery is polynomial time (proven by Cha
 **Model B:** Private key = which 273 lines are real (no T).  
 Security from "hidden noisy spread recognition." Residual gap = 0.05 (indistinguishable). This may be the real security foundation.
 
-## The Journey (12 versions, 3 audit rounds)
+## The Journey
 
 | Version | What Happened |
 |---------|--------------|
@@ -48,17 +58,6 @@ Security from "hidden noisy spread recognition." Residual gap = 0.05 (indistingu
 | v9.1→audit | ChatGPT proves clean recovery is POLYNOMIAL TIME |
 | v9.2 | Semifield attempt. REGRESSION (isotopic, 21/273 invariant) |
 | **v9.3** | **Honest reckoning. Two models. Noisy decrypt works.** |
-
-## The MinRank Connection (Grok's formulation)
-
-For each spread line L with basis M_L:
-
-```
-T(L) = L  ⟺  rank([M_L ; T·M_L]) ≤ 2
-```
-
-Full problem: find T such that this holds for ≥273 of ~769 candidate lines.  
-**Threshold-MinRank with subset selection** — formalized but not yet proven hard.
 
 ## Run It
 
@@ -74,19 +73,15 @@ No dependencies. No SageMath. No internet. Just Python 3.
 2. **The Attacker's Optimal Strategy Is to Flee** — Nash equilibrium: cost > benefit at every step.
 3. **The System Does Not Resist — It Transforms** — Attack energy → attacker entropy.
 
-## What's Next
-
-1. Scale to PG(11,4) where true non-Desarguesian semifields exist (order 256)
-2. Formalize "Hidden Noisy Spread Recognition" as a named hard problem
-3. Publish MinRank connection + noise threshold data as research paper
-
 ## Files
 
 | File | Description |
 |------|------------|
 | `aegis_v93.py` | Main prototype (Python3, executable) |
+| `THE_ARCHITECTS_METHOD.md` | The full story: 48 hours, methodology, results |
 | `README.md` | This file |
 | `GUIDE.md` | Framework explained without math |
+| `GUIDE_FOR_EVERYONE.md` | Non-technical explanation |
 | `HISTORY.md` | Complete version chronicle |
 | `ARCHITECTURE.md` | Technical deep dive |
 | `STRATEGIES.md` | Full catalog of 70+ defenses |
