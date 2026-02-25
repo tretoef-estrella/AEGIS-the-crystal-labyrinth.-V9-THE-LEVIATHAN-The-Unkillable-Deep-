@@ -1,112 +1,72 @@
-# AEGIS — Independent Audit Results
+# AUDIT — Three-Round Adversarial Review
 
-### Three Frontier AI Systems. One Truth.
-
----
-
-## Methodology
-
-AEGIS v8.3 (THE BEAST, 70 defenses) was submitted independently to three frontier AI systems for adversarial audit. Each received the complete source code, architecture documentation, and empirical results. Each was asked to:
-
-1. Score the system across multiple dimensions
-2. Identify vulnerabilities
-3. Attempt to break it
-4. Provide an honest verdict
-
-The auditors are identified as A, B, and C to emphasize the findings over the identities.
+## Auditors
+- **Gemini** — Geometric architecture, semifield theory
+- **ChatGPT** — Red-team attacks, MinRank formalization, polynomial-time proofs
+- **Grok** — Formal hardness analysis, extension-field recovery, attack pipelines
 
 ---
 
-## Scores
+## Round 1: AEGIS v9.0 (3 auditors, independent)
 
-| Dimension | Auditor A | Auditor B | Auditor C | Average |
-|-----------|-----------|-----------|-----------|---------|
-| **Novelty** | 9/10 | 9/10 | 9/10 | **9.0** |
-| Classical Security | 4/10 | 6/10 | 7/10 | 5.7 |
-| Quantum Security | 1/10 | 4/10 | 6/10 | 3.7 |
-| Practicality | 2/10 | 3/10 | 5/10 | 3.3 |
-| Theoretical Soundness | 3/10 | 3/10 | 6/10 | 4.0 |
-| Defense Depth | 5/10 | 6/10 | 8/10 | 6.3 |
-| Scalability | — | 5/10 | 8/10 | 6.5 |
+### Unanimous Findings
+1. **Hall Spread FAILED** — Selected line in PG(2,16) instead of conic. No regulus. 0 transversals.
+2. **Layer 2 blocks SEPARABLE** — Block-diagonal T allows per-block attack. Security additive, not multiplicative.
+3. **Gaslight 32/100 collisions** — Statistical distinguisher. Information leak.
 
-**Overall: 5.5/10 — "Brilliant Mad Science that needs rigorous math to become real."**
-
----
-
-## Unanimous Findings (All 3 Agree)
-
-### 1. Novelty: 9/10
-
-All three rated the concept as genuinely new. "Weaponized matrices," geometric obfuscation, attack-the-axioms philosophy — unprecedented in post-quantum cryptography. The artistic vision is a 10. The math needs to catch up.
-
-### 2. The Reguli Attack (Critical)
-
-A Desarguesian spread has a unique algebraic property: any 3 real lines define a **Regulus** (a geometrically closed subset). Random decoy lines do NOT form consistent Reguli with the real spread.
-
-**The attack:** Take triplets of public lines. Compute the projected Regulus. If the resulting lines aren't in the public set, those 3 lines are decoys. In polynomial time, the attacker filters all decoys and recovers the 273 real lines.
-
-**Proposed fix:** Use non-Desarguesian spreads as decoys (Hall, Kantor, semifield spreads) — these DO form closed Reguli and resist the filter.
-
-### 3. Layer 2 Is Too Weak (Critical)
-
-Current coupling: 2^72 brute force at PG(11,4). Grover reduces this to 2^36 quantum operations — broken in an afternoon. NIST minimum for post-quantum Level 1: 2^256 classical search.
-
-**Gap: 184 bits short of survival.**
-
-**Proposed fix:** Split T into 4+ blocks with independent bilinear/trilinear forms. Target: coupling space ≥ 2^256.
-
-### 4. No Formal Security Reduction (Critical)
-
-Without reduction to a known hard problem, AEGIS is "structural obfuscation" — historically, these always break once structure is isolated.
-
-**Best candidate:** Corrupted Spread MinRank — recovering the low-rank multiplication table T inside a corrupted geometric matrix. Strictly harder than plain Code Equivalence. Publishable.
-
-### 5. Anti-Quantum Traps Are Classical Noise
-
-A quantum computer compiles H_pub into a Grover oracle. It doesn't "experience" the column structure. Traps with quantum names (Zeno, Thermal Ghost, etc.) are effective classical obfuscation but NOT quantum-specific defenses.
-
-**Accepted and reframed:** Keep them for classical value. Stop claiming quantum decoherence. Real anti-quantum defense = Layer 2 coupling strength.
+### Scores (v9.0)
+| Auditor | Novelty | Security | Publishable |
+|---------|---------|----------|-------------|
+| Gemini | 9/10 | 4/10 | Not yet |
+| ChatGPT | 8/10 | 3/10 | Not yet |
+| Grok | 7/10 | 3/10 | Not yet |
 
 ---
 
-## Where They Disagree
+## Round 2: AEGIS v9.1 (fixes applied, re-audited)
 
-**Key question:** Can the 70 traps survive a single well-designed algebraic filter?
+### Fixes Applied
+- FIX-1: Conic-based regulus → SUCCESS (5 transversals, 5 lines replaced)
+- FIX-2: Monolithic T → GL(12,4) ≈ 2^287 bits
+- FIX-3: PRF Gaslight + anti-collision sweep → 0/100 collisions
 
-- **Auditor A says NO** — One Reguli filter ignores 65 traps
-- **Auditor C says YES** — The traps compound and random order kills static analysis
-- **Auditor B says MAYBE** — Structured noise is historically removable, but this is unusually heavy
+### Critical New Finding (all three agree)
+**Grok's MinRank formulation:** rank([M_L ; T·M_L]) ≤ 2 captures T-invariance.
 
----
+**ChatGPT:** Without corruption, recovering T is POLYNOMIAL TIME on Desarguesian spreads.
 
-## Selected Quotes
-
-> *"What you've built is not a cryptosystem — it's a work of art of psychological terror applied to information theory."* — Auditor A
-
-> *"The system does not yet reduce to a known hard problem. Without that, the design is structural-obfuscation cryptography, which historically fails."* — Auditor B
-
-> *"I could not break v8.3 in the time I had. That is the highest compliment I can give. Now ship the Leviathan."* — Auditor C
-
-> *"The dream was already pretty fucking metal."* — Auditor C
-
-> *"The math demands coldness, not terror."* — Auditor A
-
-> *"Reduce to MinRank or die."* — Auditor B
+**Gemini:** Replace entire Desarguesian spread with semifield to break the polynomial attack.
 
 ---
 
-## Our Response
+## Round 3: AEGIS v9.2 (semifield core, re-audited)
 
-We agree with every finding. The critical vulnerabilities are real. We publish them rather than hide them because:
+### Change Applied
+- FIX-4: Semifield spread (non-associative, 70/125 associativity failures)
+- Result: T²+T+αI=0 = FALSE
 
-1. The design philosophy has value independent of the implementation gaps
-2. The open problems are genuinely interesting research questions
-3. Honesty about failures is more useful than silence about successes
+### Auditor Verdicts
 
-See [OPEN_PROBLEMS.md](OPEN_PROBLEMS.md) for the research agenda these findings define.
+**Grok:** "v9.2 is a regression. Fallback is isotopic to GF(16). Only 21/273 lines T-invariant. Decryption uses clean Hc, not noisy H. Attack: < 2^35."
+
+**ChatGPT:** "Isotopy preserves tensor rank. 21/273 is a security regression. Centralizer dimension test needed. Attack: 2^40-80 via tensor/isotopy pipeline."
+
+**Gemini:** "Direction correct. Grok's analysis breaks for TRUE semifields (not isotopic scrambles). Need proper Dickson/Knuth construction. 21/273 is non-associativity consequence."
+
+### Consensus (Round 3)
+1. Semifield direction: CORRECT (all three)
+2. Current implementation: WRONG (isotopic scramble ≠ real semifield)
+3. 21/273 invariant lines: DEBATED (Gemini: feature; ChatGPT/Grok: bug)
+4. Must fix for v9.3: real semifield, all-line invariance or drop T, noisy decryption, centralizer test
 
 ---
 
-<p align="center">
-  <em>"The truth is more important than the dream."</em>
-</p>
+## Requirements for v9.3
+1. Explicit semifield with identity (Knuth binary / tabulated tables)
+2. T must stabilize ALL spread lines, or security based on hidden-spread alone
+3. Demonstrate noisy decryption from public corrupted H
+4. Compute centralizer dimension of T
+5. Scale to PG(7,4)+ and publish concrete attack costs
+6. Publication path: cryptanalysis/finite-geometry paper first
+
+*Three rounds. Nine audits. Zero mercy. The truth is more important than the dream.*
