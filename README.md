@@ -2,7 +2,7 @@
 
 ### *A design framework where every attack strategy becomes a liability.*
 
-**Version 9.3 THE LEVIATHAN** · Post-Audit Round 3  
+**Version 9.3 THE LEVIATHAN** "The Bunker"· Post-Audit Round 3  
 **Pure Python3** · Zero dependencies · 6.6 seconds  
 **License:** CC BY-NC-SA 4.0
 
