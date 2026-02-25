@@ -18,7 +18,7 @@ A psychologist and an AI decided to try inventing a new encryption system — on
 
 > *"AIKIDO. Turn the weakness into a weapon. The crystal is transparent — but it cuts."*
 
-That single idea changed everything. Over 8 versions and months of work, they developed a set of principles for building systems where:
+That single idea changed everything. Over 8 versions and days of work, they developed a set of principles for building systems where:
 
 - The attacker can *see* the structure but can't *use* it
 - Every attack path leads somewhere — but somewhere *wrong*
