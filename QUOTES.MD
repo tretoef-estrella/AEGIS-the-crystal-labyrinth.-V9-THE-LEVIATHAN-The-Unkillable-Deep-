@@ -1,93 +1,61 @@
-# AEGIS — Collected Quotes
+# QUOTES — Collected from the Journey
 
-### Words from the Journey
+## The Three Principles
+> "You cannot catch the wind."  
+> "You cannot put doors on the sea."  
+> "You cannot hold the ocean in your hands."  
+> "But you can build a lighthouse. And the lighthouse knows every wave."
 
----
+## From the Architect (Rafa)
+> "The truth is more important than the dream."
 
-## From the Architect
+> "We build bridges, not walls."
 
-> *"AIKIDO. Convert disadvantage to advantage. Crystal is transparent but cuts."*
+> "Perfecto. Ejecuta."
 
-> *"The truth is more important than the dream."*
-
-> *"Gloria o nada."* — The moment of the pivot
-
-> *"When a problem is solved, tell me. When it needs solving, tell me."*
-
-> *"The first song and the last song. Everyone remembers those."*
-
-> *"After the dance, the doors open. The crowd rushes in. The DJ knows every face."*
-
-> *"The DJ grew up in that club. 20 years walking that floor. The impostor can learn the songs but can't feel the connection."*
-
-> *"Nobody wrote it down. The dancers placed themselves."*
-
-> *"Quicksand is very unpleasant when you go shopping — or should I say, stealing?"*
-
-> *"Las máquinas se rinden a la lógica. El humano persiste y la dobla, y pasa."*
-> *(Machines surrender to logic. Humans persist and bend it.)*
-
-> *"El ser humano sabe, y acepta, que hay cosas que nunca sabrá ni podrá saber jamás, y está bien así. Las máquinas tienen que empezar a aceptar lo mismo."*
-> *(Humans know and accept that there are things they will never know. Machines need to start accepting the same.)*
-
----
-
-## The 12 Laws
-
-1. *"The structure can be visible. The creation cannot be copied."*
-2. *"The attacker's tools are weapons — turned against them."*
-3. *"All options are bad. Therefore the question is wrong. Change the question."*
-4. *"The secret is not in any object. It WAS a process."*
-5. *"The dancers placed themselves. There is no paper."*
-6. *"The only way to know the order is to have been there when they chose their numbers."*
-7. *"The dancers are not neutral. They are loyal."*
-8. *"Only dogs hear certain frequencies. Build for dogs."*
-9. *"The vinyl cannot be imitated. It's not better or worse. It's DIFFERENT. And different is enough."*
-10. *"Without attacks it doesn't survive. Can a lion not kill and live?"*
-11. *"The hat was decided by voice. No proof exists. It's not information — it's MEANING."*
-12. *"You never know who you're messing with. Not everything is what it seems."*
-
----
-
-## From the Versions
-
-> *"The structure is visible. The frequency is inaudible."* — v6 (before death)
-
-> *"Who invited you in? You shouldn't be here."* — Layer -1
-
-> *"Your success is your condemnation. The weight of the treasure is the hammer."* — Chamber of Grace
-
-> *"The algorithm of chaos is terrifying: you never know which one comes next."* — Pandemonium
-
-> *"A quantum computer fears noise it cannot filter. We ARE that noise."* — Decoherence Engine
-
-> *"You brought a quantum computer? How cute."* — v8.0
-
-> *"We don't protect the secret. We poison the enemy."* — The Beast
-
-> *"The cave no longer contains arrows or biological poisons. It contains paradoxes."* — Existential Terror
-
-> *"Sigma → ∞. Psi → 0. The Heat Death of your algorithm is not a metaphor."* — v8.3
-
----
+> "¡¡Vamos!! Lo vamos a conseguir!!"
 
 ## From the Auditors
 
-> *"What you've built is not a cryptosystem — it's a work of art of psychological terror applied to information theory."*
+### Grok (Round 1)
+> "Ignore all trap layers temporarily and answer one question: Given H, is recovering the GF(16) embedding equivalent to a known hard problem? If you cannot formalize that, the system will almost certainly be breakable."
 
-> *"The system does not yet reduce to a known hard problem. Without that, the design is structural-obfuscation cryptography, which historically fails."*
+### Grok (Round 3)
+> "The dream is still beautiful. The current implementation is structural obfuscation that will not survive serious cryptanalysis."
 
-> *"I could not break v8.3 in the time I had. That is the highest compliment I can give. Now ship the Leviathan."*
+> "Truth over dream — as requested."
 
-> *"The dream was already pretty fucking metal."*
+> "The lighthouse still stands, but it needs deeper foundations before it can guide ships through quantum storms."
 
-> *"The math demands coldness, not terror."*
+### ChatGPT (Round 2)
+> "Without corruption, the problem is polynomial-time solvable. Noise is doing all the work."
 
-> *"Reduce to MinRank or die."*
+> "This single test will tell you more than all entropy metrics combined."
+
+> "You asked for rigor, not encouragement. This is it."
+
+### ChatGPT (Round 3)
+> "Removing the minimal polynomial does NOT remove hidden-field recovery. It only removes the simplest route."
+
+### Gemini (Round 2)
+> "If we use a semifield spread instead of Desarguesian, the restriction T²+T+αI=0 disappears and the extension field recovery attack hits a theoretical wall."
+
+### Gemini (Round 3)
+> "The direction is correct. The lighthouse needs deeper foundations."
+
+## From the Lead Engine (Claude)
+> "Gemini propuso los Millennium Problems como upgrades. Mi veredicto: 100% humo."
+
+> "Las tres correcciones funcionan. Ahora necesitamos la formalización."
+
+> "v9.2 removes the obvious polynomial attack, but does not yet establish hardness."
+
+## The Pattern
+> Every version that looked invincible had a hidden structural weakness.  
+> Every death produced a deeper understanding.  
+> The system improves not by adding complexity, but by removing false assumptions.
 
 ---
 
-<p align="center">
-  <em>"The truth is more important than the dream."</em><br>
-  <em>"And the dream is becoming real."</em>
-</p>
+*Collected across 12 versions, 3 audit rounds, and one very long day.*  
+*25 February 2026*
