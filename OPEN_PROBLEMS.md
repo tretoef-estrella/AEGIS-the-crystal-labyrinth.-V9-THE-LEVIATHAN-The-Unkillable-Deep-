@@ -1,120 +1,50 @@
-# AEGIS — Open Problems
+# OPEN PROBLEMS — AEGIS Post-Audit Round 3
 
-### Unsolved Questions for Researchers
+## Critical (must solve for v9.3)
 
----
+### OP-1: Proper Semifield Construction
+Build a genuine non-Desarguesian semifield spread at order 16 (or 64) using explicit multiplication tables from the classification literature (Knuth, Dickson, Albert). The current isotopic scramble is recoverable. Must have identity element and all spread lines T-invariant.
+**Status:** BLOCKING. All three auditors agree current construction is wrong.
 
-These are genuine open problems that emerged from building and breaking AEGIS. We don't know the answers. Some may be easy. Some may be impossible. All are interesting.
+### OP-2: Noisy Decryption
+Current decryption uses clean Hc, not public corrupted H. Must demonstrate error-correction from noisy matrix using only the private spread (list-decoding or iterative correction). Without this, the system is not a functional cryptosystem.
+**Status:** BLOCKING. Grok: "not even functional as code-based cryptosystem."
 
----
+### OP-3: Centralizer Dimension Test
+Solve XT = TX over GF(4). If dim(Centralizer(T)) > 1, hidden-field structure survives regardless of semifield choice. ChatGPT: "This single test tells more than all entropy metrics combined."
+**Status:** BLOCKING. Not yet computed.
 
-## Critical (Must Solve for Cryptosystem Viability)
+### OP-4: T-Invariance Completeness
+In v9.2, only 21/273 lines are T-invariant (down from 273/273 in Desarguesian). Either restore full invariance with a proper semifield, or drop T entirely and prove security from hidden-spread recognition alone.
+**Status:** BLOCKING. Grok/ChatGPT say regression; Gemini says consequence of non-associativity.
 
-### OP-1: Reguli-Resistant Decoy Generation
+## Important (needed for publication)
 
-**Problem:** Can non-Desarguesian spreads (Hall, Kantor, semifield) serve as decoys that resist the Reguli distinguisher?
+### OP-5: Spread-MinRank Formalization
+Formalize "Corrupted Threshold Spread-MinRank" as a named hard problem. Prove or conjecture asymptotic hardness. Grok provided the rank([M_L; T·M_L]) ≤ 2 formulation.
+**Status:** Formulation exists. Proof missing.
 
-**Context:** The Reguli attack filters Desarguesian spread lines from random decoys in polynomial time by testing whether triplets of lines form geometrically closed subsets. Non-Desarguesian spreads have their own Reguli structure, which might resist this filter.
+### OP-6: Tensor Decomposition Resistance
+ChatGPT identifies bilinear tensor decomposition as the dominant attack at all scales. Prove that the semifield multiplication tensor is not efficiently decomposable (or that corruption defeats it).
+**Status:** Not addressed.
 
-**Specific question:** Given a Desarguesian spread S and a Hall spread S' in PG(5,4), can an attacker distinguish lines of S from lines of S' in polynomial time?
+### OP-7: Scale to PG(7,4) or PG(9,4)
+Toy scale PG(5,4) is too small for meaningful security estimates. Need prototype at PG(7,4) minimum with concrete keygen/encrypt/decrypt + attack cost estimates.
+**Status:** Not started.
 
-**Why it matters:** If the answer is "no," the Hall of Mirrors layer becomes cryptographically sound. If "yes," decoy-based obfuscation fundamentally doesn't work.
+### OP-8: Hidden Spread Recognition Hardness
+If T is dropped, security reduces to: "given noisy coordinates + candidate lines, identify the 273-line partition." Is this problem hard? Grok estimates < 2^35 at toy via statistical consistency. Needs formal analysis at scale.
+**Status:** New problem identified in Round 3.
 
-### OP-2: Layer 2 Coupling Hardness at 2^256
+## Research Questions
 
-**Problem:** Design a key-splitting scheme where recovering the full key from the split components requires ≥ 2^256 classical operations.
+### OP-9: Semifield Classification at Order 16
+The complete classification of semifields of order 16 is known. Which ones produce spreads where left-multiplication stabilizes all lines? Which resist isotopy reduction?
 
-**Current state:** T split into (T₁, T₂) with bilinear coupling B(T₁, T₂). At PG(11,4), brute force = 2^72. Grover halves to 2^36.
+### OP-10: Corruption as Hardness Amplifier
+ChatGPT: "Corruption acts as heuristic obfuscation, not hardness reduction." Can we formalize corruption's role, analogous to noise in LPN/LWE?
 
-**Proposed direction:** Four 3×3 blocks with independent bilinear/trilinear forms plus hash-derived coupling mask. Needs formal analysis.
+### OP-11: Publication Venue
+All three auditors recommend: publish as cryptanalysis/finite-geometry paper first, not as cryptosystem. Target venues: Designs Codes and Cryptography, PQCrypto workshop, IACR ePrint.
 
-**Specific question:** What is the minimum number of independent coupling forms needed to achieve 2^256 classical security in PG(11,4)?
-
-### OP-3: Corrupted Spread MinRank Reduction
-
-**Problem:** Define the Corrupted Spread MinRank Problem formally and prove it is at least as hard as standard MinRank (NP-hard).
-
-**Definition sketch:** Given a matrix M over GF(q) that is the sum of a spread-generating matrix and a structured corruption matrix, recover the low-rank spread generator.
-
-**Why it matters:** Without a reduction to a known hard problem, AEGIS is structural obfuscation. With this reduction, it becomes publishable.
-
----
-
-## Structural (Important for Soundness)
-
-### OP-4: Trap Composition Analysis
-
-**Problem:** Do some of the 70 traps cancel each other? Specifically, does Toxoplasma (disguise broken as healthy) undo Suction Mud (zero columns)?
-
-**Context:** The v8.3 result showing zero=0 in trap scan suggests some cleanup is already happening. Formal analysis of trap interaction could prune to an optimal core set of 15-20 maximally impactful traps.
-
-### OP-5: Noise Distribution Theory over GF(4)
-
-**Problem:** What is the optimal noise distribution for GF(4) matrices that maximizes attacker confusion while preserving owner decodability?
-
-**Specific question:** Given a code of rate R over GF(4), what noise density ε maximizes the gap between owner's decoding probability and attacker's decoding probability?
-
-### OP-6: Fold Indistinguishability
-
-**Problem:** Can the attacker detect Layers 6-7 (the fold/mirage) before committing computational resources to them?
-
-**Context:** If the attacker can identify the fold from outside, they avoid the loop entirely. If they can't, each entry into the fold costs O(n³) with no information gain.
-
----
-
-## Scaling (Required for Production)
-
-### OP-7: PG(11,4) Implementation
-
-**Problem:** Scale AEGIS from PG(5,4) [1,365 points] to PG(11,4) [5,592,405 points].
-
-**Subproblems:**
-- Key generation time at 5.5M points
-- Decoy generation: millions of partial spreads needed
-- Decryption performance with 1.1M spread lines
-- Memory footprint optimization (estimated 33MB for H)
-- Constant-time implementation for side-channel resistance
-
-### OP-8: Decoy-at-Scale Generation
-
-**Problem:** Generate algebraically plausible decoy lines at PG(11,4) scale using keyed PRNG — fast enough for practical key generation.
-
-**Constraint:** Decoys must resist Reguli filtering (see OP-1), overlap detection, and statistical profiling.
-
----
-
-## Theoretical (For the Ambitious)
-
-### OP-9: STSP Hardness in the Obfuscated Setting
-
-**Problem:** Is STSP (Spread Trapdoor Selection Problem) hard when the spread equations are corrupted by structured noise?
-
-**Context:** STSP without corruption is polynomial (the linear algebra attack that broke v6). The question is whether Layers 0-7 raise the complexity from polynomial to exponential.
-
-**This is the fundamental open question of AEGIS.**
-
-### OP-10: Nash Equilibrium Formalization
-
-**Problem:** Formally prove that the attacker's optimal strategy against AEGIS v8.3+ is not to attack.
-
-**Requires:** Defining cost functions for each attack path, computing expected payoffs under trap uncertainty, and showing all paths have negative expected value.
-
-### OP-11: Decoder-Induced Trapdoor Geometry
-
-**Problem:** Formalize the concept of "decoder-induced trapdoor geometry" — where the trapdoor is not in the structure but in how the decoder interacts with the structure.
-
-**Context:** All three auditors identified this as a genuinely unexplored concept in the literature. It emerged from AEGIS Round 14 and may have applications beyond this specific system.
-
----
-
-## How to Contribute
-
-If you work on any of these problems, we would love to hear from you — whether you solve them, prove them impossible, or find something unexpected along the way.
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for how to share results.
-
----
-
-<p align="center">
-  <em>"Without attacks it doesn't survive. Can a lion not kill and live?"</em>
-</p>
+*11 open problems. 4 blocking. The truth is more important than the dream.*
