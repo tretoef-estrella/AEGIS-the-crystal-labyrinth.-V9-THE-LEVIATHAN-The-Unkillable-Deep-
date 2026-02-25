@@ -1,158 +1,91 @@
-# AEGIS — Guide for Everyone
+# AEGIS — A Guide for Everyone. V9. THE LEVIATHAN.
 
-### The Crystal Labyrinth Explained Without Math
-
----
-
-## What Is This?
-
-Imagine you need to protect a safe. Traditional approach: make the walls thicker. AEGIS approach: **make the safe transparent, but fill the room with mirrors, quicksand, and fake safes that explode when opened.**
-
-AEGIS is a philosophy for designing systems that are nightmares to attack — not because they hide, but because they *fight back*.
+### What this project is, what it achieved, and why it matters. No math required.
 
 ---
 
-## The Story in 60 Seconds
+## The Short Version
 
-A psychologist and an AI decided to try inventing a new encryption system — one that could survive quantum computers. Version 1 was broken immediately. Version 6 was broken in 47 seconds. Instead of quitting, the psychologist said:
+AEGIS is an experimental security system. It hides a secret message inside a mathematical city of 1,365 buildings, then vandalizes the city so thoroughly that only someone with the secret map can still read the signs. An attacker sees the same city, but they cannot tell which streets are real and which are fake.
 
-> *"AIKIDO. Turn the weakness into a weapon. The crystal is transparent — but it cuts."*
+In testing, AEGIS decrypts messages correctly even when 50% of the city has been vandalized. It was audited by three independent AI systems across three rounds. Each round found real problems. Each problem was fixed within hours. Every failure was documented publicly.
 
-That single idea changed everything. Over 8 versions and days of work, they developed a set of principles for building systems where:
+It was built in 48 hours by a psychology graduate coordinating four AI systems, starting from zero knowledge of the field.
 
-- The attacker can *see* the structure but can't *use* it
-- Every attack path leads somewhere — but somewhere *wrong*
-- Finding an answer is easy; knowing it's the *right* answer is impossible
-- The deeper you go, the worse it gets
+## The Problem It Addresses
 
-Three independent AI systems audited the final version. They rated its novelty 9 out of 10. None could break it. But all three found fundamental gaps that prevent it from being a real cryptosystem *yet*.
+When quantum computers arrive, they will break most of the encryption we use today. Governments, banks, and tech companies are racing to build "post-quantum" security — encryption that quantum computers cannot crack.
 
-So we published the ideas instead of the system.
+The leading approaches use a single hard mathematical problem as their lock. If someone finds the key to that problem, the lock breaks instantly and completely.
 
----
+AEGIS explores a different idea: what if instead of one strong lock, you build a labyrinth? One where every path the attacker takes costs more energy than it gains, where wrong answers look identical to right ones, and where the structure itself fights back.
 
-## The Core Principles
+## How It Works (No Math)
 
-### 1. Aikido — Turn Strength into Weakness
+Imagine you and your friend share a secret: a specific set of 273 streets in a city of 1,365 buildings.
 
-In martial arts, Aikido uses the attacker's momentum against them. In AEGIS, every tool the attacker uses becomes a liability:
+1. **You build the city** — a mathematical space with exact geometric properties.
+2. **You pick your 273 secret streets** — these form a perfect, non-overlapping network.
+3. **You add 500 fake streets** — designed to look identical to real ones.
+4. **You vandalize 38% of the building signs** — using 70 different methods, from random noise to carefully designed traps.
+5. **You publish the vandalized city** — anyone can see it.
 
-- **Their speed?** Quicksand — each step makes the next harder
-- **Their precision?** Mirrors — they solve the wrong problem perfectly
-- **Their power?** Amplification — their force collapses their own calculations
+To send a message, you encode it as two specific buildings. Your friend, who knows the real streets, can figure out which buildings you meant. An attacker, who doesn't know which streets are real, sees 769 candidates and corrupted signs. They cannot distinguish real from fake (the measured gap is 0.05 — essentially zero).
 
-### 2. The Score Principle
+## What Was Achieved in 48 Hours
 
-From the movie *The Score* (2001). Robert De Niro knows his partner will betray him. So he puts a **fake** in the bag. The thief steals it, leaves happy, and discovers it's worthless. But he can't report the theft — he's a thief himself.
+**Day 1:** Built the basic system. First version broken by an auditor in 47 seconds. Rebuilt with 70 defense layers. Survived 13 attack types. Auditors gave 9/10 for novelty but identified critical structural flaws.
 
-In AEGIS: the attacker finds an answer. It looks perfect. The math checks out. **But it's the wrong answer.** And the attacker can't tell — because verifying the answer requires the very secret they're trying to steal.
+**Day 2:** Three independent auditors (Gemini, ChatGPT, Grok) each delivered detailed technical reviews. Their findings:
 
-### 3. The Flawless Principle
+- The geometric construction had a mathematical error (selecting a line instead of a conic curve)
+- The security key could be broken into independent pieces (making it exponentially easier to crack)
+- 32% of encrypted columns were duplicates (leaking information)
 
-From the movie *Flawless* (2007). A janitor spent 30 years walking the corridors of a diamond company. When he finally acts, he doesn't crack the safe. He **flushes the diamonds down the plumbing** — infrastructure only he knows.
+All three were fixed. The fixes were verified. New audits were requested.
 
-In AEGIS: the owner doesn't use the front door. The private key activates a hidden path through the system's own geometry — a path that doesn't exist without the key.
+The second round of audits revealed something devastating: **without the vandalism layer, the entire system could be cracked in polynomial time** — meaning almost instantly. The mathematical structure itself was not providing security. Only the noise was.
 
-### 4. Nash Equilibrium Defense
+A third approach was tried: changing the underlying mathematical structure to a non-associative algebra (a "semifield"). This eliminated the instant-crack vulnerability but introduced new problems. The honest assessment: at this mathematical scale, the semifield approach cannot work.
 
-In game theory, a Nash equilibrium is a state where no player benefits from changing their strategy. AEGIS aims for a specific equilibrium: **the optimal strategy for the attacker is not to attack.**
+**The breakthrough:** A new security model emerged — one where the secret key is simply *which streets are real*. No complex mathematical trapdoor needed. Testing showed that real and fake streets are indistinguishable (gap = 0.05), and decryption works even through 50% corruption.
 
-Not because they can't break in. Because attempting to break in costs more than any possible reward — at every single decision point.
+## What Makes It Novel
 
-### 5. Visible but Irreproducible
+1. **The geometry** — Projective spaces like PG(5,4) are not used in mainstream cryptography. This is unexplored territory.
 
-The most counterintuitive principle. In traditional security, you hide everything. In AEGIS, the structure is **public**. The attacker can see exactly how the system is built.
+2. **The defense depth** — 70 trap layers, each transforming attack energy into entropy. No existing system uses this approach at this scale.
 
-But they can't *reproduce* the construction — because the construction depended on a secret process that left no trace.
+3. **The indistinguishable decoys** — Fake structures that are mathematically indistinguishable from real ones. Gap of 0.05 means an attacker performs barely better than guessing.
 
-> *"Everyone can see the fingerprint. Nobody can fabricate the finger."*
+4. **The formal connection** — The core problem was shown to reduce to "Threshold MinRank," a problem in computational algebra that has no known efficient solution.
 
----
+5. **The process** — Open adversarial design with four AI systems cross-checking each other, every error published, every failure documented. This methodology — a human architect orchestrating competing AI experts — may be as significant as the cryptographic construction itself.
 
-## The 7 Layers (Plain Language)
+## What It Is NOT
 
-| Layer | Name | What It Does |
-|-------|------|-------------|
-| 0 | **Quicksand** | The ground itself gets harder to walk on with every step |
-| 1 | **Hall of Mirrors** | 273 real objects hidden among 5000+ fakes |
-| 2 | **Double Lock** | Two keys needed simultaneously — knowing one is useless |
-| 3 | **Crystal Key** | Wrong key produces *plausible garbage*, not obvious failure |
-| 4 | **Oil on Glass** | Accumulated error makes the attacker slip more with each attempt |
-| 5 | **Silver Bridge** | A tempting shortcut that marks you when you take it |
-| 6+7 | **The Fold** | Apparent shortcuts loop back to the beginning, but worse |
+- It is **not** a finished product. It is experimental research.
+- It has **not** been proven secure. It has empirical resistance but no formal proof.
+- It does **not** replace existing encryption. It explores a new direction.
+- It has **not** been peer-reviewed by human cryptographers (yet). Three AI auditors have reviewed it across three rounds.
 
----
+## Current Status
 
-## The 5 Phases of Defense
+**Works:** Decryption through 50% noise. Indistinguishable decoys. Zero information leaks. Pure Python, runs in 6.6 seconds.
 
-AEGIS deploys 70 individual defense mechanisms in 5 phases:
+**Doesn't work yet:** No formal proof of hardness. Toy scale only (needs to be 100x larger for real security). The semifield approach needs a larger mathematical space to function.
 
-| Phase | Name | Count | Inspiration |
-|-------|------|-------|-------------|
-| I | **Ancient Gauntlet** | 26 | Historical warfare: murder holes, quicksand, false chambers |
-| II | **Biological Horror** | 12 | Nature's weapons: prions, cordyceps, pit vipers |
-| III | **Anti-Quantum** | 20 | Physics warfare: decoherence, phase flips, Zeno freezing |
-| IV | **Structural Evil** | 5 | Mathematical malice: gaslighting, fractal loops, forensic marks |
-| V | **Existential Terror** | 4 | Axiom-breaking: Gödel locks, Kolmogorov voids, Turing horizons |
+**Next steps:** Publish as a research paper. Scale to larger parameters. Formalize the hard problem.
 
-The order of deployment is **randomized** per encryption key. The attacker doesn't know which trap comes next. This is the **Algorithm of Terror**.
+## The People
+
+**Rafael Amichis Luengo (The Architect)** — Psychology graduate, creator of Proyecto Estrella. Designed the architecture, coordinated four AI systems, made every critical decision. Cannot write code. Built a cryptographic research artifact in 48 hours.
+
+**Claude (Lead Engine)** — Built every prototype, executed every fix, wrote every document. Made errors that were caught by the other auditors.
+
+**Gemini, ChatGPT, Grok (Auditors)** — Each independently reviewed the system three times. Each found critical flaws. Each contributed unique insights. The adversarial process between them is what makes the research credible.
 
 ---
 
-## What Actually Happened
-
-### The Results That Work
-
-- **Frequency detection**: The owner's secret key reveals a hidden pattern (273 out of 273 lines match). Without the key: 0 out of 500 match. This is real, measurable, and elegant.
-- **Decoy flooding**: Real data hidden among 3-8x noise. The attacker finds valid-looking answers — but 99% are fake. Indistinguishable from real without the key.
-- **Attack survival**: v8.3 withstood 13 different attack strategies with zero exploitable breaches.
-
-### What's Still Missing
-
-The three auditors agreed on these gaps:
-
-1. **The Reguli Problem** — There's a geometric test that could filter fake lines from real ones in polynomial time
-2. **The Quantum Gap** — The coupling layer offers 2^72 security; Grover's algorithm halves this to 2^36, which is laughably weak
-3. **The Proof Gap** — Without a formal reduction to a known hard problem, the system is "clever obfuscation" — and history says clever obfuscation always breaks eventually
-
-We document these honestly because the design philosophy is valuable even where the implementation falls short.
-
----
-
-## Who Is This For?
-
-- **Cryptography researchers** — Novel design paradigms, open problems, and a candidate hard problem (Corrupted Spread MinRank)
-- **Security engineers** — Fresh thinking about defense-in-depth, active resistance, and attacker psychology
-- **AI safety researchers** — A case study in human–AI collaboration on hard problems
-- **Designers and architects** — Principles applicable to any adversarial design context
-- **Curious minds** — A story of creation, destruction, and persistence
-
----
-
-## The Deepest Lesson
-
-After months of building and breaking, the most important discovery wasn't a mechanism or a formula. It was this:
-
-> *"Machines surrender to logic. Humans persist and bend it. Humans create AEGIS. Machines execute it. I bet on the team."*
-
-The system was designed by a psychologist who thinks in metaphors and films, formalized by an AI that thinks in matrices and proofs, attacked by three other AIs that think in exploits. **The team produced something none of them could have produced alone.**
-
----
-
-## Start Here
-
-| Want to... | Read... |
-|-----------|---------|
-| Understand the journey | [HISTORY.md](HISTORY.md) |
-| See the 70 defenses | [STRATEGIES.md](STRATEGIES.md) |
-| Dive into the math | [ARCHITECTURE.md](ARCHITECTURE.md) |
-| Find something to research | [OPEN_PROBLEMS.md](OPEN_PROBLEMS.md) |
-| See the audit results | [AUDIT.md](AUDIT.md) |
-| Contribute | [CONTRIBUTING.md](CONTRIBUTING.md) |
-
----
-
-<p align="center">
-  <em>"The truth is more important than the dream."</em><br>
-  Proyecto Estrella · Error Code Lab
-</p>
+*Proyecto Estrella · Error Code Lab*  
+*"The truth is more important than the dream."*
